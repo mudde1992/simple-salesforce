@@ -1,5 +1,5 @@
 *****************
-Simple Salesforce
+Simple Salesforces
 *****************
 
 .. image:: https://api.travis-ci.org/simple-salesforce/simple-salesforce.svg?branch=master
