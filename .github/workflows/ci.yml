@@ -35,7 +35,7 @@ jobs:
       - name: Authenticate with Salesforce
         run: |
           echo ${{ secrets.SALESFORCE_AUTH_URL }} > auth-url.txt
-          sfdx force:auth:sfdxurl:store -f auth-url.txt -a dev-org
+          sfdx force:auth:web:login -r https://cognizant62.my.salesforce.com/ -a sandbox-org
 
       
 
