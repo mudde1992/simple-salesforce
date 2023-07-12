@@ -32,6 +32,21 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: npm install
+      - name: Salesforce Authentication
+        # You may pin to the exact commit or the version.
+        # uses: karamchandanid/sfdc-credentials-auth@b3a4829b89238de762735c53e03932fc68a1cc1b
+        uses: karamchandanid/sfdc-credentials-auth@v3
+        with:
+          # 
+          user_name: 
+           # 
+          login_url: # optional, default is https://login.salesforce.com
+          # combination of <password>:<security_token>
+          password: 
+          # Consumer Key of a connected App created within salesforce
+          sfdc_client_id: 
+          # Consumer Secret of a connected App created within salesforce
+          sfdc_client_secret:
 
       #- name: Authenticate with Salesforce
       #  run: |
@@ -49,21 +64,8 @@ jobs:
       # Remove auth file
       #- name: "Remove auth file"
       #  run: rm -f ./auth-url.txt
-      - name: Git : Salesforce Authentication
-  # You may pin to the exact commit or the version.
-  # uses: karamchandanid/sfdc-credentials-auth@b3a4829b89238de762735c53e03932fc68a1cc1b
-        uses: karamchandanid/sfdc-credentials-auth@v3
-       with:
-         # 
-         user_name: 
-         # 
-         login_url: # optional, default is https://login.salesforce.com
-         # combination of <password>:<security_token>
-         password: 
-         # Consumer Key of a connected App created within salesforce
-         sfdc_client_id: 
-         # Consumer Secret of a connected App created within salesforce
-         sfdc_client_secret: 
+      
+      
 
       - name: Run Apex tests
         run: sfdx force:apex:test:run -c -r human -d ./mysaleforce/apex -w 20
