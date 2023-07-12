@@ -39,7 +39,7 @@ jobs:
         run: npm install
 
       - name: Run Apex tests
-        run: sfdx force:apex:test:run -l RunAllTestsInOrg -w 10
+        run: sfdx force:apex:test:run -c -r human -d ./tests/apex -w 20
 
       - name: Deploy to Salesforce
         run: sfdx force:source:deploy -p force-app -u dev-org -w 10
