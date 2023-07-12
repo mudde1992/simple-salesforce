@@ -35,12 +35,12 @@ jobs:
       - name: Authenticate with Salesforce
         run: |
           echo ${{ secrets.SALESFORCE_AUTH_URL }} > auth-url.txt
-          sfdx force:auth:web:login -r https://cognizant62.my.salesforce.com/ -a sandbox-org
+          sfdx force:auth:sfdxurl:store -f auth-url.txt -a sandbox-org
 
       
 
       - name: Run Apex tests
-        run: sfdx force:apex:test:run -c -r human -d ./tests/apex -w 20
+        run: sfdx force:apex:test:run -c -r human -d ./mysaleforce/apex -w 20
 
       - name: Deploy to Salesforce
-        run: sfdx force:source:deploy -p force-app -u dev-org -w 10
+        run: sfdx force:source:deploy -p force-app -u sandbox-org -w 10
