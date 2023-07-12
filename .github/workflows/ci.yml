@@ -21,6 +21,7 @@ jobs:
                   tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
                   echo "$HOME/sfdx/bin" >> $GITHUB_PATH
                   ~/sfdx/bin/sfdx version
+                  sfdx force:org:display --verbose -u mravishankar123-bgll@force.com
 
       - name: Checkout code
         uses: actions/checkout@v2
